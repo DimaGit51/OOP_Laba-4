@@ -290,19 +290,19 @@ public class Bike implements transport_vehicle{
         boolean flag = true;
         if(obj instanceof Bike)
         {
-            Bike moto=(Bike) obj;
-            if(!moto.getBrand().equals(getBrand()))
+            Bike motoc =(Bike) obj;
+            if(!motoc.getBrand().equals(getBrand()))
             {
                 flag= false;
             }
-            if(moto.getLenModelMass()!=getLenModelMass())
+            if(motoc.getLenModelMass()!=getLenModelMass())
             {
                 flag= false;
             }
             String[] array = this.getModelNameMass();
-            String[] array2 = moto.getModelNameMass();
+            String[] array2 = motoc.getModelNameMass();
             double[] array3 = this.getModelPriceMass();
-            double[] array4 = moto.getModelPriceMass();
+            double[] array4 = motoc.getModelPriceMass();
             for (int i=0;i<array.length;i++)
             {
                 if(!array[i].equals((array2[i]))||array3[i]!=array4[i])
@@ -331,16 +331,16 @@ public class Bike implements transport_vehicle{
 
     public Object clone() throws CloneNotSupportedException
     {
-        Bike cloned=(Bike) super.clone();
+        Bike cloned = (Bike) super.clone();
         cloned.head = (Model) head.clone();
         Model q = head.next;
         Model p = cloned.head;
         while (q != head)
         {
             p.next = (Model) q.clone();
-            p.next.prev=p;
-            p=p.next;
-            q=q.next;
+            p.next.prev = p;
+            p = p.next;
+            q = q.next;
         }
         p.next=cloned.head;
         cloned.head.prev = p;
